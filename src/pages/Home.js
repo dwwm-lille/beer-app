@@ -1,15 +1,24 @@
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 import Beer from '../components/Beer';
 import Search from '../components/Search';
 
 function Home() {
+  let [beers, setBeers] = useState([]);
+  let fetchBeers = () => {
+    axios.get('https://api.punkapi.com/v2/beers').then(response => {
+      setBeers(response.data);
+    });
+  }
+
+  useEffect(() => fetchBeers(), []);
+
   return (
     <>
       <Search />
 
       <div className="list">
-        <Beer beer={{ name: 'Beer 1', image_url: 'https://images.punkapi.com/v2/6.png' }} />
-        <Beer beer={{ name: 'Beer 2', image_url: 'https://images.punkapi.com/v2/2.png' }} />
-        <Beer beer={{ name: 'Beer 3', image_url: 'https://images.punkapi.com/v2/5.png' }} />
+        {beers.map(beer => <Beer key={beer.id} beer={beer} />)}
       </div>
     </>
   );
