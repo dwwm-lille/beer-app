@@ -1,3 +1,4 @@
+import Beer from './components/Beer';
 import Header from './components/Header';
 import Search from './components/Search';
 
@@ -9,18 +10,9 @@ function App() {
       <Search />
 
       <div className="list">
-        <div className="beer">
-          <h2>Beer 1</h2>
-          <img src="https://images.punkapi.com/v2/6.png" alt="Beer 1" />
-        </div>
-        <div className="beer">
-          <h2>Beer 2</h2>
-          <img src="https://images.punkapi.com/v2/2.png" alt="Beer 2" />
-        </div>
-        <div className="beer">
-          <h2>Beer 3</h2>
-          <img src="https://images.punkapi.com/v2/5.png" alt="Beer 3" />
-        </div>
+        <Beer beer={{ name: 'Beer 1', image_url: 'https://images.punkapi.com/v2/6.png' }} />
+        <Beer beer={{ name: 'Beer 2', image_url: 'https://images.punkapi.com/v2/2.png' }} />
+        <Beer beer={{ name: 'Beer 3', image_url: 'https://images.punkapi.com/v2/5.png' }} />
       </div>
     </div>
   );
