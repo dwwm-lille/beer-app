@@ -1,14 +1,12 @@
+import Header from './components/Header';
+import Search from './components/Search';
+
 function App() {
   return (
     <div className="container">
-      <div className="header">
-        <h1>Beer App!</h1>
-      </div>
+      <Header title="Beer App!" />
 
-      <div className="search">
-        <input type="text" placeholder="Hoppy, Malt, Angry, New..." />
-        <button disabled>Recherche</button>
-      </div>
+      <Search />
 
       <div className="list">
         <div className="beer">
