@@ -9,6 +9,10 @@ body {
     background-attachment: fixed;
 }
 
+input, button {
+    font-family: inherit;
+}
+
 .container {
     max-width: 900px;
     margin: auto;
