@@ -1,0 +1,23 @@
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #ffc425;
+    background-image: linear-gradient(to bottom, #ffc425 50%, #eaaa00 100%);
+    background-attachment: fixed;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+}
+
+/* Header */
+.header h1 {
+    text-align: center;
+    font-family: 'Bevan', cursive;
+    transform: rotate(-5deg) skew(-20deg);
+    color: #0d181c;
+    margin: 20px 0;
+    font-size: 100px;
+    font-weight: normal;
+    text-shadow: 3px 3px 0 rgba(13, 24, 28, 0.2);
+}
