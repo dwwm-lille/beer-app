@@ -57,7 +57,7 @@ body {
 }
 
 /* Beer listing */
-.results {
+.list {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;

@@ -7,10 +7,10 @@ function App() {
 
       <div className="search">
         <input type="text" placeholder="Hoppy, Malt, Angry, New..." />
-        <button>Recherche</button>
+        <button disabled>Recherche</button>
       </div>
 
-      <div className="results">
+      <div className="list">
         <div className="beer">
           <h2>Beer 1</h2>
           <img src="https://images.punkapi.com/v2/6.png" alt="Beer 1" />
