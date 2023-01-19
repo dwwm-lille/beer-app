@@ -1,13 +1,19 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import Beer from '../components/Beer';
+import Loader from '../components/Loader';
 import Search from '../components/Search';
 
 function Home() {
   let [beers, setBeers] = useState([]);
+  let [loading, setLoading] = useState(true);
+
   let fetchBeers = () => {
     axios.get('https://api.punkapi.com/v2/beers').then(response => {
-      setBeers(response.data);
+      setTimeout(() => {
+        setBeers(response.data);
+        setLoading(false);
+      }, 1000);
     });
   }
 
@@ -16,6 +22,8 @@ function Home() {
   return (
     <>
       <Search />
+
+      {loading && <Loader message="🍻 Les bières arrivent!" />}
 
       <div className="list">
         {beers.map(beer => <Beer key={beer.id} beer={beer} />)}
