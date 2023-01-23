@@ -38,7 +38,9 @@ function Single() {
     if (!beer.ebc) return;
 
     // let randomGlass = Math.floor(Math.random() * 12) + 1;
-    let randomGlass = Math.max(beer.ebc % 12, 1);
+    // let randomGlass = Math.max(beer.ebc % 12, 1);
+    let randomGlass = Math.ceil(beer.ebc / 10);
+    randomGlass = randomGlass > 12 ? Math.floor(Math.random() * 12) + 1 : randomGlass;
 
     return (
       <div className="glass">
