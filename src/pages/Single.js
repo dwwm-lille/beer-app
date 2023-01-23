@@ -37,7 +37,7 @@ function Single() {
   };
 
   // On affiche le verre 1 pour un ebc à 1, le verre 12 pour un ebc à 24 avec le modulo....
-  let renderGlass = () => { 
+  let renderGlass = () => {
     if (!beer.ebc) return;
 
     // let randomGlass = Math.floor(Math.random() * 12) + 1;

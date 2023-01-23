@@ -23,15 +23,27 @@ function Home() {
       url += '?beer_name=' + search;
     }
 
+    // Avant de faire la requête, on pourrait checker s'il y a déjà des bières dans le localStorage...
+    let beers = localStorage.getItem('beers-'+search);
+
+    if (beers) {
+      setBeers(JSON.parse(beers)); // On transforme une chaine en tableau d'objets
+      setLoading(false);
+      return; // On arrête le code car les bières étaient déjà dans le localStorage
+    }
+
     axios.get(url).then(response => {
       setTimeout(() => {
         setBeers(response.data);
         setLoading(false);
+        // On peut sauvegarder les bières dans le localstorage pour aller les chercher plus tard
+        localStorage.setItem('beers-'+search, JSON.stringify(response.data));
       }, 1000);
     });
   }
 
-  useEffect(() => fetchBeers(params.search), [params]);
+  // Le useEffect est appelée à chaque fois que params.search change
+  useEffect(() => fetchBeers(params.search), [params.search]);
 
   // let [beers, loading] = useFetch(
   //   params.search ? `https://api.punkapi.com/v2/beers?beer_name=${params.search}` : 'https://api.punkapi.com/v2/beers'
