@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useCallback, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Loader from '../components/Loader';
+import { useFetch } from '../hooks';
 
 function Single() {
   let params = useParams();
@@ -18,6 +19,8 @@ function Single() {
   }, [params.id]);
 
   useEffect(() => fetchBeer(), [fetchBeer]);
+
+  // let [[beer], loading] = useFetch(`https://api.punkapi.com/v2/beers/${params.id}`);
 
   // Pour l'IBU, on affiche 1 cercle jaune de 0 à 20, 2 cercles de 20 à 40...
   let renderIbu = () => {

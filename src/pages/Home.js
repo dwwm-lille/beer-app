@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import Beer from '../components/Beer';
 import Loader from '../components/Loader';
 import Search from '../components/Search';
+import { useFetch } from '../hooks';
 
 function Home() {
   let [beers, setBeers] = useState([]);
@@ -31,6 +32,10 @@ function Home() {
   }
 
   useEffect(() => fetchBeers(params.search), [params]);
+
+  // let [beers, loading] = useFetch(
+  //   params.search ? `https://api.punkapi.com/v2/beers?beer_name=${params.search}` : 'https://api.punkapi.com/v2/beers'
+  // );
 
   return (
     <> {/* Un fragment est une div invisible */}
