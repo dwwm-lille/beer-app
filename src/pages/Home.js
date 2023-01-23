@@ -20,7 +20,7 @@ function Home() {
   useEffect(() => fetchBeers(), []);
 
   return (
-    <>
+    <> {/* Un fragment est une div invisible */}
       <Search />
 
       {loading && <Loader message="🍻 Les bières arrivent!" />}
