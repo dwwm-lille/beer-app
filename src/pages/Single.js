@@ -21,6 +21,8 @@ function Single() {
 
   // Pour l'IBU, on affiche 1 cercle jaune de 0 à 20, 2 cercles de 20 à 40...
   let renderIbu = () => {
+    if (!beer.ibu) return;
+
     let stars = Math.ceil(beer.ibu * 5 / 100);
 
     return (
@@ -32,7 +34,9 @@ function Single() {
   };
 
   // On affiche le verre 1 pour un ebc à 1, le verre 12 pour un ebc à 24 avec le modulo....
-  let renderGlass = () => {
+  let renderGlass = () => { 
+    if (!beer.ebc) return;
+
     // let randomGlass = Math.floor(Math.random() * 12) + 1;
     let randomGlass = Math.max(beer.ebc % 12, 1);
 
